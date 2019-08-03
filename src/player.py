@@ -5,13 +5,20 @@ class Player:
     def __init__(self, name):
         self.name = name
         self.woodcuttingXP = 0
-        self.axe = wcinfo.axes['bronzeaxe']
+        self.handslot = wcinfo.axes['bronzeaxe']
+        self.offhandslot = None
 
-    def setAxe(self, x):
-        self.axe = x
+    def setHandSlot(self, x):
+        self.handslot = x
 
-    def getAxe(self):
-        return self.axe
+    def setHandSlot(self):
+        return self.handslot
+
+    def setOffHandSlot(self,x):
+        self.offhandslot = x
+
+    def getOffHandSlot(self):
+        return self.offhandslot
 
     def setWoodcutting(self, x):
         self.woodcuttingXP = self.woodcuttingXP + x
