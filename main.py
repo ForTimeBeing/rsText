@@ -1,5 +1,5 @@
 import math
-
+from gui import createGUI
 
 # TODO Create pygame GUI
 # Checks for save game, Get's data from save game
@@ -22,7 +22,7 @@ def generateXPlevelList():
 def game():
     checkForSaveGame()
     xp_list = generateXPlevelList()
-
+    createGUI()
 
 if __name__ == "__main__":
     game()
