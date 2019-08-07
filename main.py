@@ -1,5 +1,5 @@
 import math
-from gui import createGUI
+from src.gui.gui import createGUI
 
 # TODO Create pygame GUI
 # Checks for save game, Get's data from save game
