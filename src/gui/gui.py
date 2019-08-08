@@ -1,6 +1,7 @@
 from src.gui.gif_loader import *
 import tkinter as tk
 #TODO: Hide GUI until centered
+#TODO: Setup the text to write over the gif at the top(Probably need multi-threading)
 #https://stackoverflow.com/questions/3352918/how-to-center-a-window-on-the-screen-in-tkinter
 #Tried alpha - doesnt work on linux
 
