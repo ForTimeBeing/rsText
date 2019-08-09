@@ -1,8 +1,7 @@
 from src.gui.gif_loader import *
 import tkinter as tk
-#TODO: Hide GUI until centered
-#https://stackoverflow.com/questions/3352918/how-to-center-a-window-on-the-screen-in-tkinter
-#Tried alpha - doesnt work on linux
+
+#TODO: Place animated text ON TOP of gif - Don't think I need multi-threading
 
 def center(win):
     """
@@ -21,21 +20,23 @@ def center(win):
     win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
     win.deiconify()
 
+
 def createGUI():
+    # Sets canvas size
     canvasWidth = 540
     canvasHeight = 720
 
+    # Creates window, makes it transparent
     window = tk.Tk()
-
-
-    canvas = tk.Canvas(window)
+    window.wait_visibility(window)
     window.attributes('-alpha', 0.0)
+    window.title("rsText")
+    window.geometry(str(canvasWidth) + 'x' + str(canvasHeight))
+
+    # Creates canvas container
+    canvas = tk.Canvas(window)
     # canvas = ResizingCanvas(canvasWidth,canvasHeight,highlightthickness=0)
     canvas.pack(fill='both', expand='yes')
-
-    window.title("rsText")
-
-    window.geometry(str(canvasWidth) + 'x' + str(canvasHeight))
 
     xOffset = canvasWidth / 2
     yOffset = canvasHeight / 2
@@ -54,9 +55,7 @@ def createGUI():
         canvas.after(delay, update_text)
         delay += delta
 
-    canvas.addtag_all("all")
-
-    lbl = ImageButton(canvas, text='Play Now', compound=tk.TOP, state="disabled")
+    lbl = ImageButton(canvas, text='Play Now', compound=tk.BOTTOM, state="normal")
     lbl.pack(fill='both', expand='yes')
     lbl.load('images/rs_homepage.gif')
     window.resizable(False, False)
